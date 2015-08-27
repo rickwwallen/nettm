@@ -1,0 +1,435 @@
+
+arp.c,109
+void arp_init(5,39
+struct arp_entry *arp_add(arp_add9,125
+struct arp_entry *arp_lookup(arp_lookup16,313
+
+deque.c,21
+int deque_pops(3,20
+
+dev.c,20
+void dev_init(6,40
+
+hashtable.c,357
+#define NUM_PRIMES 23,440
+static const unsigned int primes[primes24,462
+const unsigned int prime_table_length 33,719
+const float max_load_factor 34,771
+create_hashtable(38,907
+hash(73,2162
+hashtable_expand(87,2598
+hashtable_count(152,4741
+hashtable_insert(159,4893
+hashtable_search(190,6044
+hashtable_remove(208,6586
+hashtable_destroy(243,7465
+
+hashtable_itr.c,134
+hashtable_iterator(12,360
+hashtable_iterator_advance(41,1023
+hashtable_iterator_remove(86,2171
+hashtable_iterator_search(115,3025
+
+iqm.c,428
+#define MAIN_SUPPORT1,0
+#define PKTIN_OFFLOAD_MAX 13,163
+#define PKTIN_OFFLOAD_THRESHOLD 14,197
+#define PKTIN_OFFLOAD_BUF 15,271
+t_addr static_offload[static_offload17,309
+int static_offload_filled[static_offload_filled18,404
+int static_offload_taken[static_offload_taken19,493
+int num_static_offload=20,538
+volatile int packets_not_in_flight 21,604
+t_addr* nf_iqm_pktin_pop(23,714
+void nf_iqm_pktin_free(115,3822
+
+memcpy.c,31
+void *memcpy32(memcpy327,155
+
+memory.c,773
+#define HEAP_AVAILABLE 11,138
+static int sp_allocated 13,171
+void sp_init_mem_pool(15,201
+void sp_init_mem_single(16,231
+void *sp_malloc(sp_malloc18,262
+#define PREV_INUSE 39,739
+struct mem_struct40,764
+  int prev_size;42,784
+  int size;43,841
+void sp_free(47,904
+void* sp_realloc(62,1255
+char* sp_mem_pool[sp_mem_pool96,2082
+int   sp_mem_allocated[sp_mem_allocated97,2113
+#define ALLOCATOR_TRACK_AVAILABLE 99,2150
+int HEAP_AVAILABLE;101,2187
+#define BASE_MASK 102,2207
+#define NOMANSLAND 103,2235
+void sp_init_mem_single(105,2261
+struct __mp__ 127,2897
+  struct __mp__     *next;next128,2953
+  unsigned              len;129,3012
+void sp_init_mem_pool(132,3084
+void *sp_malloc(sp_malloc163,3988
+void sp_free(191,4812
+void* sp_realloc(205,5202
+
+mtdeque.c,122
+void mtdeque_init(3,22
+struct deque_item *mtdeque_pop_nolock(mtdeque_pop_nolock20,332
+int mtdeque_pops_nolock(67,1812
+
+pktbuff.c,98
+void pkt_fill(8,103
+char*pkt_alloc(pkt_alloc13,236
+void pkt_free(20,376
+void fill_ioq(33,639
+
+rw_lock.c,129
+void rw_lock_init(3,22
+void reader_lock(13,187
+void reader_unlock(31,558
+void writer_lock(40,697
+void writer_unlock(66,1303
+
+rw_lock_sched.c,130
+void rw_lock_init(7,131
+void reader_lock(17,296
+void reader_unlock(38,753
+void writer_lock(47,892
+void writer_unlock(75,1591
+
+support.c,844
+#define MAIN_SUPPORT1,0
+#define BUF_SIZE 14,261
+static volatile int po_buffers_free=17,398
+int error_condition 19,484
+void nf_pktout_init(21,510
+static int bitscan10(42,1055
+t_addr* nf_pktout_alloc(61,1370
+static void collect_sent(119,2689
+void nf_pktout_free(152,3453
+static inline uint calc_ctrl(161,3695
+static char* send_setup_start_addr=168,3868
+static char* send_setup_end_addr=169,3906
+void nf_pktout_send_setup(170,3942
+void nf_pktout_send_schedule(174,4078
+void nf_pktout_send_finish(176,4136
+void nf_pktout_send_setup(183,4337
+void nf_pktout_send_schedule(191,4597
+void nf_pktout_send_finish(194,4707
+void nf_pktout_send(203,4911
+static int mytime=260,6494
+uint nf_time(261,6515
+int nf_stall_a_bit(278,6742
+void init_stack(299,7021
+void nf_pktin_init(327,7553
+void simprintf(351,8074
+void print_pkt(384,8825
+
+support_no_inline.c,179
+void nf_unlock(3,22
+void nf_lock(17,313
+int nf_tid(30,484
+void relax(40,607
+void mytest 68,936
+void trap(94,1451
+t_addr* nf_pktin_pop(101,1558
+void nf_pktin_free(112,1830
+
+timer.c,294
+struct TimerEntry 6,62
+  unsigned int time;7,82
+  timer_func function;8,103
+  void *value;value9,126
+  struct TimerEntry *next;next11,143
+void timer_init(14,174
+void timer_destroy(19,270
+void timer_schedule(23,318
+void timer_fire_expired(43,922
+unsigned int timer_next_time(57,1311
+
+workqueue.c,110
+void workq_init(5,46
+void workq_serve(10,190
+void workq_add_task(27,711
+void workq_add_task_nolock(34,983
+
+arp.h,223
+#define ARP_H2,14
+#define ARP_TABLE_SIZE 5,30
+struct arp_entry 7,57
+  unsigned char mac[mac8,76
+  unsigned char ip[ip9,100
+struct arp_table 12,127
+  struct arp_entry entries[entries13,146
+  int next_entry;14,190
+
+common.h,257
+#define COMMON_H2,17
+#define log(15,241
+extern void simprintf(19,295
+#define log(25,415
+extern void simprintf(26,454
+#define log(32,572
+#define simprintf(33,608
+typedef unsigned int uint;41,735
+#define offsetof(44,770
+#define container_of(54,1126
+
+deque.h,434
+#define DEQUE_H2,16
+struct deque_item 17,517
+  struct deque_item *next;next18,537
+struct deque 21,568
+  struct deque_item *head;head22,583
+  struct deque_item *tail;tail23,610
+static inline void deque_init(27,711
+static inline int deque_empty(32,827
+static inline void deque_push(37,950
+static inline void deque_push_tail(51,1288
+static inline struct deque_item *deque_pop(deque_pop65,1667
+#define deque_entry(89,2413
+
+dev.h,132
+#define DEV_H2,14
+struct net_iface 7,68
+  unsigned char mac[mac8,87
+  unsigned char ip[ip9,111
+  struct arp_table arp;11,135
+
+hashtable.h,162
+#define __HASHTABLE_CWC22_H__4,108
+#define DEFINE_HASHTABLE_INSERT(103,3902
+#define DEFINE_HASHTABLE_SEARCH(121,4446
+#define DEFINE_HASHTABLE_REMOVE(139,5032
+
+hashtable_itr.h,316
+#define __HASHTABLE_ITR_CWC22__4,116
+struct hashtable_itr11,414
+    struct hashtable *h;h13,437
+    struct entry *e;e14,462
+    struct entry *parent;parent15,483
+    unsigned int index;16,509
+hashtable_iterator_key(32,910
+hashtable_iterator_value(41,1164
+#define DEFINE_HASHTABLE_ITERATOR_SEARCH(71,2276
+
+hashtable_private.h,493
+#define __HASHTABLE_PRIVATE_CWC22_H__4,122
+struct entry9,265
+    void *k,k11,280
+    void *k, *v;v11,280
+    unsigned int h;12,297
+    struct entry *next;next13,317
+struct hashtable 16,345
+    unsigned int tablelength;17,364
+    struct entry **table;table18,394
+    unsigned int entrycount;19,420
+    unsigned int loadlimit;20,449
+    unsigned int primeindex;21,477
+    unsigned int (*hashfn)hashfn22,506
+    int (*eqfn)eqfn23,544
+indexFor(33,838
+#define freekey(46,1201
+
+mtdeque.h,771
+#define MTDEQUE_H2,18
+#define CAN_BLOCK 13,278
+#define NO_BLOCK 14,298
+struct mtdeque 16,318
+  struct deque deq;17,335
+  volatile int size;19,358
+  volatile int threads_waiting;20,379
+  int state_lock;22,412
+  int wait_lock;23,430
+  int state_lock_thread;26,467
+  int debug;27,492
+static inline void mtdeque_lock(40,1011
+static inline void mtdeque_unlock(54,1389
+static inline int mtdeque_empty(66,1743
+#define LOCK_CHECK(72,1877
+#define LOCK_CHECK(74,1911
+static inline void mtdeque_push_nolock(83,2324
+static inline void mtdeque_push(99,2815
+static inline void mtdeque_push_tail_nolock(107,3086
+static inline void mtdeque_push_tail(123,3592
+static inline struct deque_item *mtdeque_pop(mtdeque_pop140,4287
+static inline int mtdeque_pops(152,4845
+
+num_cpu.h,104
+#define NUM_CPU_H2,18
+#define NUM_CPU 9,156
+#define THREAD_PER_CPU 17,291
+#define MAX_THREAD 21,343
+
+pcap.h,1487
+#define lib_pcap_h38,2043
+#define PCAP_VERSION_MAJOR 57,2311
+#define PCAP_VERSION_MINOR 58,2340
+#define PCAP_ERRBUF_SIZE 60,2370
+typedef	int bpf_int32;67,2537
+typedef	u_int bpf_u_int32;68,2560
+typedef struct pcap pcap_t;71,2595
+typedef struct pcap_dumper pcap_dumper_t;72,2623
+typedef struct pcap_if pcap_if_t;73,2665
+typedef struct pcap_addr pcap_addr_t;74,2699
+struct pcap_file_header 110,4122
+	bpf_u_int32 magic;111,4148
+	u_short version_major;112,4168
+	u_short version_minor;113,4192
+	bpf_int32 thiszone;114,4216
+	bpf_u_int32 sigfigs;115,4267
+	bpf_u_int32 snaplen;116,4318
+	bpf_u_int32 linktype;117,4383
+struct pcap_pkthdr 125,4611
+	struct timeval ts;126,4632
+	bpf_u_int32 caplen;127,4669
+	bpf_u_int32 len;128,4722
+struct pcap_stat 134,4822
+	u_int ps_recv;135,4841
+	u_int ps_drop;136,4891
+	u_int ps_ifdrop;137,4940
+	u_int bs_capt;139,5018
+struct pcap_if 146,5149
+	struct pcap_if *next;next147,5166
+	char *name;name148,5189
+	char *description;description149,5244
+	struct pcap_addr *addresses;addresses150,5312
+	bpf_u_int32 flags;151,5342
+#define PCAP_IF_LOOPBACK	154,5397
+struct pcap_addr 159,5512
+	struct pcap_addr *next;next160,5531
+	struct sockaddr *addr;addr161,5556
+	struct sockaddr *netmask;netmask162,5595
+	struct sockaddr *broadaddr;broadaddr163,5653
+	struct sockaddr *dstaddr;dstaddr164,5723
+typedef void (*pcap_handler)pcap_handler167,5801
+#define MODE_CAPT 241,8283
+#define MODE_STAT 242,8303
+#define MODE_MON 243,8323
+
+pktbuff.h,548
+#define PKTBUFF_H2,18
+struct pkt_buff8,78
+  char *data;data10,96
+ char *head;head11,167
+  unsigned int	len;12,235
+  unsigned int  total_size;13,301
+struct ioq_header 16,373
+  unsigned short dst_port;17,393
+  unsigned short word_length;18,420
+  unsigned short src_port;19,450
+  unsigned short byte_length;20,477
+static inline char*pkt_push(pkt_push28,659
+#define pkt_pull_type(40,984
+static inline char *pkt_pull(pkt_pull42,1054
+static inline char *pkt_trim(pkt_trim55,1382
+static inline char *pkt_push_all(pkt_push_all66,1648
+
+process.h,23
+#define PROCESS_H2,18
+
+support.h,1768
+#define SUPPORT_H2,18
+typedef char t_addr;6,58
+#define      HEADER_MEM_SEL 8,80
+#define      PACKETOUT_SEL 9,111
+#define      CONNSTATE_SEL_COMM 10,141
+#define      CONNSTATE_SEL_HP 11,177
+#define      CONNSTATE_SEL_PO 12,226
+#define      NOT_A_PACKET 13,275
+#define TOBS 15,313
+#define LOBS 16,330
+#define  EXTENDED_BIT 18,347
+#define  GET_LOCK 19,376
+#define  UN_LOCK 20,422
+#define  PRINTF_W 21,468
+#define  SEND_TIME_TRIG 22,514
+#define	 CTRL_START 24,564
+#define	 CTRL_END 25,594
+#define  CTRL_END_W 26,624
+#define  SEND_OUT_W 27,654
+#define  HEADER_FLUSH_W 28,684
+#define  COMMON_TIME 29,718
+#define  HEADER_RETURN_W 30,749
+#define STACK_IN_BYTES 32,787
+#define STACK_SKIP 34,862
+#define DCACHE 35,921
+#define THREADS_PER_CPU 36,950
+#define PKTIN_BACKOFF 39,1024
+t_addr* header_mem 42,1069
+t_addr* conn_mem 43,1121
+t_addr* packetout_mem 44,1175
+#define INLINE_API 62,1675
+  #define INLINE_FUNC 66,1719
+  #define INCLUDE_IMPL67,1755
+  #define INLINE_FUNC69,1784
+    #define INCLUDE_IMPL72,1829
+#define NUM_OUTPUT_BUFS 84,2139
+#define HAS_LOCKS 106,2536
+#define LOCK_INIT 107,2556
+#define LOCK_PKTIN 108,2576
+#define LOCK_MISC 109,2597
+#define LOCK_PO_MEM 110,2617
+#define SENDING_LOCK 111,2639
+#define MALLOCFREE_LOCK 112,2663
+#define LOCK_DS0 114,2691
+#define LOCK_DS1 115,2711
+#define LOCK_DS2 116,2731
+#define LOCK_DS3 117,2751
+#define LOCK_DS4 118,2771
+#define LOCK_DS5 119,2791
+#define LOCK_PREDEF 120,2812
+#define print_pkt(132,3087
+  volatile int lock;140,3184
+  volatile int writing;141,3205
+  volatile int writer_pending;142,3229
+  volatile int writer_id;143,3260
+  volatile int reader_cnt;144,3286
+} rw_lock;145,3313
+INLINE_FUNC int nf_pktin_is_valid(174,4162
+INLINE_FUNC uint nf_time(182,4345
+
+sw_port.h,864
+#define TAP_H2,14
+#define PCAP_DONT_INCLUDE_PCAP_BPF_H22,411
+using namespace std;28,530
+struct ioq_header 30,572
+  unsigned short dst_port;31,592
+  unsigned short word_length;32,619
+  unsigned short src_port;33,649
+  unsigned short byte_length;34,676
+class PcapPort 42,905
+  bool current_done;PcapPort::current_done50,1087
+  bool can_open_next;PcapPort::can_open_next52,1128
+  list<string> next_file_list;PcapPort::next_file_list53,1150
+  list<string> old_file_list;PcapPort::old_file_list54,1181
+  pcap_t *pcap;PcapPort::pcap55,1211
+  int fdout;PcapPort::fdout56,1227
+  bool can_open;PcapPort::can_open57,1240
+  int port_num;PcapPort::port_num58,1257
+class PktPort 61,1277
+  int rx_sock;PktPort::rx_sock69,1451
+  int tx_sock;PktPort::tx_sock70,1466
+  int num_rx,PktPort::num_rx71,1481
+  int num_rx, num_tx;PktPort::num_tx71,1481
+
+timer.h,169
+#define TIMER_H2,16
+typedef void (*timer_func)timer_func5,34
+struct Timer 9,90
+  int numTasks;12,131
+  struct TimerEntry *scheduledEntries;scheduledEntries14,148
+
+workqueue.h,338
+#define WORKQUEUE_H2,20
+typedef void (*work_t)work_t12,281
+struct work_task 14,321
+  work_t work;15,340
+  unsigned long data;16,355
+  struct deque_item item;17,377
+struct work_queue 20,407
+  int workers_waiting;21,427
+  struct mtdeque tasks;22,450
+static inline void workq_lock(54,1880
+static inline void workq_unlock(58,1972

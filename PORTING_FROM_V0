@@ -1,0 +1,18 @@
+Since NetTM has split input and output packet buffer like NetThreads (but unlike NetThreads-RE),
+there should be very little code changes required to port an application to NetTM. The main aspect to keep in mind is that the lock identifiers have a meaning attached to each of them. In particular, looking at support.h in src/bench/common, in the following lock identifiers:
+
+#define LOCK_INIT 0
+#define LOCK_PO_MEM 2
+#define SENDING_LOCK  3
+#define MALLOCFREE_LOCK  4
+
+are non-transactional identifiers (e.g. normal).
+
+#define LOCK_MISC 1
+ is not a lock identified. Calling nf_lock() on this identifier will block the thread until a packet is available to be processed.
+
+The other lock identifiers (5 to 15 inclusively) are transactional locks, meaning that nf_lock will trigger a transaction to start and nf_unlock, a transaction commit.
+
+More details at:
+http://netfpga.org/foswiki/bin/view/NetFPGA/OneGig/NetTM
+
